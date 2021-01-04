@@ -87,3 +87,7 @@ c.add("list", s);
 System.out.println(SNBTUtil.toSNBT(c)); 
 // Output: {blah:5b,foo:"bar",list:[test,text]}
 ```
+
+# Credits
+- [Querz](https://github.com/Querz/NBT) - The Original Creator of this NBT library
+- [BJTMastermind](https://github.com/BJTMastermind/simple-nbt) - The Current Maintainer of this fork of the NBT library (Simple NBT)
