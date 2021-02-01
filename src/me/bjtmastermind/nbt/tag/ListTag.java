@@ -263,6 +263,42 @@ public class ListTag<T extends Tag<?>> extends Tag<List<T>> implements Iterable<
 		sb.append("]}");
 		return sb.toString();
 	}
+	
+	@Override
+	public byte valueToByte(int index) {
+		String s = this.valueToString(index);
+		return Byte.valueOf(s);
+	}
+	
+	@Override
+	public short valueToShort(int index) {
+		String s = this.valueToString(index);
+		return Short.valueOf(s);
+	}
+	
+	@Override
+	public int valueToInt(int index) {
+		String s = this.valueToString(index);
+		return Integer.valueOf(s);
+	}
+	
+	@Override
+	public long valueToLong(int index) {
+		String s = this.valueToString(index);
+		return Long.valueOf(s);
+	}
+	
+	@Override
+	public float valueToFloat(int index) {
+		String s = this.valueToString(index);
+		return Float.valueOf(s);
+	}
+	
+	@Override
+	public double valueToDouble(int index) {
+		String s = this.valueToString(index);
+		return Double.valueOf(s);
+	}
 
 	@Override
 	public boolean equals(Object other) {

@@ -1,6 +1,5 @@
 package me.bjtmastermind.nbt.tag;
 
-import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -10,7 +9,6 @@ import java.util.Set;
 import java.util.function.BiConsumer;
 
 import me.bjtmastermind.io.MaxDepthIO;
-import me.bjtmastermind.nbt.io.SNBTUtil;
 
 public class CompoundTag extends Tag<Map<String, Tag<?>>> implements Iterable<Map.Entry<String, Tag<?>>>, Comparable<CompoundTag>, MaxDepthIO {
 
@@ -231,17 +229,53 @@ public class CompoundTag extends Tag<Map<String, Tag<?>>> implements Iterable<Ma
 	}
 
 	@Override
-	public String valueToString(int maxDepth) {
+	public String valueToString(int index) {
 		StringBuilder sb = new StringBuilder("{");
 		boolean first = true;
 		for (Map.Entry<String, Tag<?>> e : getValue().entrySet()) {
 			sb.append(first ? "" : ",")
 					.append(escapeString(e.getKey(), false)).append(":")
-					.append(e.getValue().toString(decrementMaxDepth(maxDepth)));
+					.append(e.getValue().toString(decrementMaxDepth(index)));
 			first = false;
 		}
 		sb.append("}");
 		return sb.toString();
+	}
+	
+	@Override
+	public byte valueToByte(int index) {
+		String s = this.valueToString(index);
+		return Byte.valueOf(s);
+	}
+	
+	@Override
+	public short valueToShort(int index) {
+		String s = this.valueToString(index);
+		return Short.valueOf(s);
+	}
+	
+	@Override
+	public int valueToInt(int index) {
+		String s = this.valueToString(index);
+		return Integer.valueOf(s);
+	}
+	
+	@Override
+	public long valueToLong(int index) {
+		String s = this.valueToString(index);
+		return Long.valueOf(s);
+	}
+	
+	@Override
+	public float valueToFloat(int index) {
+		String s = this.valueToString(index);
+		return Float.valueOf(s);
+	}
+	
+	@Override
+	public double valueToDouble(int index) {
+		String s = this.valueToString(index);
+		return Double.valueOf(s);
 	}
 
 	@Override
@@ -296,6 +330,7 @@ public class CompoundTag extends Tag<Map<String, Tag<?>>> implements Iterable<Ma
 		return "";
 	}*/
 	
+	@SuppressWarnings("unused")
 	private String indent(String text, int indent) {
 		String tab = "    ";
 		for(int i = 0; i < indent; i++) {

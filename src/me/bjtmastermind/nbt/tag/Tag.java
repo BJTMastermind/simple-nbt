@@ -116,7 +116,70 @@ public abstract class Tag<T> implements Cloneable {
 		return "{\"type\":\""+ getClass().getSimpleName() + "\"," +
 				"\"value\":" + valueToString(maxDepth) + "}";
 	}
-
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The byte representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public byte valueToByte() {
+		return valueToByte(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The short representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public short valueToShort() {
+		return valueToShort(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The int representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public int valueToInt() {
+		return valueToInt(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The long representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public long valueToLong() {
+		return valueToLong(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The float representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public float valueToFloat() {
+		return valueToFloat(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The double representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public double valueToDouble() {
+		return valueToDouble(DEFAULT_MAX_DEPTH);
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The byte array representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public byte[] valueToByteArray() {
+		return valueToByteArray();
+	}
+	
 	/**
 	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
 	 * @return The string representation of the value of this Tag.
@@ -125,7 +188,73 @@ public abstract class Tag<T> implements Cloneable {
 	public String valueToString() {
 		return valueToString(DEFAULT_MAX_DEPTH);
 	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The int array representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public int[] valueToIntArray() {
+		return valueToIntArray();
+	}
+	
+	/**
+	 * Calls {@link Tag#valueToString(int)} with {@link Tag#DEFAULT_MAX_DEPTH}.
+	 * @return The long array representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public long[] valueToLongArray() {
+		return valueToLongArray();
+	}
 
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The byte representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract byte valueToByte(int maxDepth);
+	
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The short representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract short valueToShort(int maxDepth);
+	
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The int representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract int valueToInt(int maxDepth);
+	
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The long representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract long valueToLong(int maxDepth);
+	
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The float representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract float valueToFloat(int maxDepth);
+	
+	/**
+	 * Returns a JSON representation of the value of this Tag.
+	 * @param maxDepth The maximum nesting depth.
+	 * @return The double representation of the value of this Tag.
+	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
+	 * */
+	public abstract double valueToDouble(int maxDepth);
+	
 	/**
 	 * Returns a JSON representation of the value of this Tag.
 	 * @param maxDepth The maximum nesting depth.
@@ -133,7 +262,7 @@ public abstract class Tag<T> implements Cloneable {
 	 * @throws MaxDepthReachedException If the maximum nesting depth is exceeded.
 	 * */
 	public abstract String valueToString(int maxDepth);
-
+	
 	/**
 	 * Returns whether this Tag and some other Tag are equal.
 	 * They are equal if {@code other} is not {@code null} and they are of the same class.

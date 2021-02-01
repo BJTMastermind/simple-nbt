@@ -28,4 +28,34 @@ public final class EndTag extends Tag<Void> {
 	public EndTag clone() {
 		return INSTANCE;
 	}
+
+	@Override
+	public byte valueToByte(int maxDepth) {
+		return 0;
+	}
+
+	@Override
+	public short valueToShort(int maxDepth) {
+		return 0;
+	}
+
+	@Override
+	public int valueToInt(int maxDepth) {
+		return 0;
+	}
+
+	@Override
+	public long valueToLong(int maxDepth) {
+		return 0;
+	}
+
+	@Override
+	public float valueToFloat(int maxDepth) {
+		return 0;
+	}
+
+	@Override
+	public double valueToDouble(int maxDepth) {
+		return 0;
+	}
 }

@@ -36,4 +36,10 @@ public class LongTag extends NumberTag<Long> implements Comparable<LongTag> {
 	public LongTag clone() {
 		return new LongTag(getValue());
 	}
+	
+	@Override
+	public byte valueToByte(int index) {
+		String s = this.valueToString(index);
+		return Byte.valueOf(s);
+	}
 }
